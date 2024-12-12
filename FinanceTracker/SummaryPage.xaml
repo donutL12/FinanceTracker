@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinanceTracker.SummaryPage"
+             BackgroundColor="#1e1e1e">
+
+    <!-- Background Gradient -->
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#1e1e1e" Offset="0" />
+            <GradientStop Color="#333333" Offset="1" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <!-- Main Stack Layout -->
+    <StackLayout Padding="20" Spacing="20">
+
+        <!-- Title -->
+        <Label Text="Financial Summary"
+               FontSize="32"
+               FontAttributes="Bold"
+               TextColor="#ffffff"
+               HorizontalOptions="Center" />
+
+        <!-- Total Income Card -->
+        <Frame Padding="15" CornerRadius="10" BackgroundColor="#333333" HasShadow="True">
+            <StackLayout>
+                <Label Text="Total Income:"
+                       FontSize="18"
+                       TextColor="#ffffff" />
+                <Label x:Name="TotalIncomeLabel"
+                       FontSize="24"
+                       TextColor="Green"
+                       HorizontalOptions="Center" />
+            </StackLayout>
+        </Frame>
+
+        <!-- Total Expenses Card -->
+        <Frame Padding="15" CornerRadius="10" BackgroundColor="#333333" HasShadow="True">
+            <StackLayout>
+                <Label Text="Total Expenses:"
+                       FontSize="18"
+                       TextColor="#ffffff" />
+                <Label x:Name="TotalExpensesLabel"
+                       FontSize="24"
+                       TextColor="Red"
+                       HorizontalOptions="Center" />
+            </StackLayout>
+        </Frame>
+
+        <!-- Net Balance Card -->
+        <Frame Padding="15" CornerRadius="10" BackgroundColor="#333333" HasShadow="True">
+            <StackLayout>
+                <Label Text="Net Balance:"
+                       FontSize="18"
+                       TextColor="#ffffff" />
+                <Label x:Name="NetBalanceLabel"
+                       FontSize="24"
+                       TextColor="Green"
+                       HorizontalOptions="Center" />
+            </StackLayout>
+        </Frame>
+
+        <!-- Cash on Bank Card -->
+        <Frame Padding="15" CornerRadius="10" BackgroundColor="#333333" HasShadow="True">
+            <StackLayout>
+                <Label Text="Cash on Bank:"
+                       FontSize="18"
+                       TextColor="#ffffff" />
+                <Label x:Name="CashOnBankLabel"
+                       FontSize="24"
+                       TextColor="Green"
+                       HorizontalOptions="Center" />
+            </StackLayout>
+        </Frame>
+
+        <!-- Cash on Hand Card -->
+        <Frame Padding="15" CornerRadius="10" BackgroundColor="#333333" HasShadow="True">
+            <StackLayout>
+                <Label Text="Cash on Hand:"
+                       FontSize="18"
+                       TextColor="#ffffff" />
+                <Label x:Name="CashOnHandLabel"
+                       FontSize="24"
+                       TextColor="Green"
+                       HorizontalOptions="Center" />
+            </StackLayout>
+        </Frame>
+
+    </StackLayout>
+</ContentPage>

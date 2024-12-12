@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinanceTracker.EditTransactionPage"
+             BackgroundColor="#1e1e1e">
+
+    <StackLayout Padding="20" Spacing="20">
+        <Label Text="Edit Transaction"
+               FontSize="24"
+               HorizontalOptions="Center"
+               TextColor="#ffffff" />
+
+        <Entry x:Name="TransactionAmountEntry"
+               Placeholder="Enter amount"
+               Keyboard="Numeric"
+               Text="{Binding Amount, Mode=TwoWay}"
+               BackgroundColor="#2d2d2d"
+               TextColor="#ffffff" />
+
+        <Entry x:Name="TransactionDescriptionEntry"
+               Placeholder="Enter description"
+               Text="{Binding Description, Mode=TwoWay}"
+               BackgroundColor="#2d2d2d"
+               TextColor="#ffffff" />
+
+        <Picker x:Name="TransactionTypePicker"
+                Title="Select Type"
+                TextColor="#ffffff"
+                BackgroundColor="#2d2d2d"
+                SelectedItem="{Binding Type, Mode=TwoWay}">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Cash on Bank</x:String>
+                    <x:String>Cash on Hand</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Button Text="Save"
+                Clicked="OnSaveClicked"
+                BackgroundColor="#4caf50"
+                TextColor="#ffffff" />
+
+        <Button Text="Delete"
+                Clicked="OnDeleteClicked"
+                TextColor="Red"
+                BackgroundColor="#2d2d2d" />
+    </StackLayout>
+</ContentPage>

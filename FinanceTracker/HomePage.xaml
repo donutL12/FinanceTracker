@@ -1,0 +1,131 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:microcharts="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+             x:Class="FinanceTracker.HomePage"
+             BackgroundColor="#1e1e1e">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="25">
+            <!-- Title -->
+            <Label Text="Finance Tracker"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   TextColor="#ffffff"
+                   HorizontalOptions="Center" />
+
+            <!-- Balance Summary -->
+            <Frame Padding="15"
+                   BorderColor="#333"
+                   CornerRadius="15"
+                   BackgroundColor="#252525"
+                   HasShadow="True">
+                <VerticalStackLayout>
+                    <Label Text="Current Balance"
+                           FontSize="20"
+                           TextColor="#aaaaaa"
+                           HorizontalOptions="Center" />
+                    <Label x:Name="BalanceLabel"
+                           FontSize="36"
+                           TextColor="#4caf50"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Accounts Overview -->
+            <HorizontalStackLayout Spacing="10">
+                <!-- Cash on Bank -->
+                <Frame Padding="10"
+                       CornerRadius="15"
+                       BackgroundColor="#252525"
+                       WidthRequest="150"
+                       HasShadow="True">
+                    <VerticalStackLayout>
+                        <Label Text="Cash on Bank"
+                               FontSize="16"
+                               TextColor="#aaaaaa"
+                               HorizontalOptions="Center" />
+                        <Label x:Name="CashOnBankLabel"
+                               FontSize="20"
+                               TextColor="#4caf50"
+                               HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Cash on Hand -->
+                <Frame Padding="10"
+                       CornerRadius="15"
+                       BackgroundColor="#252525"
+                       WidthRequest="150"
+                       HasShadow="True">
+                    <VerticalStackLayout>
+                        <Label Text="Cash on Hand"
+                               FontSize="16"
+                               TextColor="#aaaaaa"
+                               HorizontalOptions="Center" />
+                        <Label x:Name="CashOnHandLabel"
+                               FontSize="20"
+                               TextColor="#4caf50"
+                               HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </Frame>
+            </HorizontalStackLayout>
+
+            <!-- Recent Transactions -->
+            <Label Text="Recent Transactions"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="#ffffff"
+                   HorizontalOptions="Start" />
+            <Frame Padding="10"
+                   CornerRadius="15"
+                   BackgroundColor="#252525"
+                   HasShadow="True">
+                <CollectionView x:Name="TransactionsCollectionView"
+                                SelectionMode="Single"
+                                SelectionChanged="OnTransactionSelected">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10" ColumnDefinitions="100,*,Auto">
+                                <Label Text="{Binding Date, StringFormat='{0:MM/dd/yyyy}'}"
+                                       FontSize="14"
+                                       TextColor="#ffffff" />
+                                <Label Text="{Binding Description}"
+                                       FontSize="14"
+                                       TextColor="#ffffff"
+                                       Grid.Column="1" />
+                                <Label Text="{Binding Amount, StringFormat='₱{0:N2}'}"
+                                       FontSize="14"
+                                       TextColor="{Binding TextColor, FallbackValue=#ffffff}"
+                                       HorizontalOptions="End"
+                                       Grid.Column="2" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Frame>
+
+            <!-- Navigation Buttons -->
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                <Button Text="Add Income"
+                        Clicked="OnAddIncomeClicked"
+                        BackgroundColor="#4caf50"
+                        TextColor="#ffffff"
+                        CornerRadius="20"
+                        WidthRequest="105" />
+                <Button Text="Add Expense"
+                        Clicked="OnAddExpenseClicked"
+                        BackgroundColor="#f44336"
+                        TextColor="#ffffff"
+                        CornerRadius="20"
+                        WidthRequest="105" />
+                <Button Text="Summary"
+                        Clicked="OnViewSummaryClicked"
+                        BackgroundColor="#2196f3"
+                        TextColor="#ffffff"
+                        CornerRadius="20"
+                        WidthRequest="105" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
